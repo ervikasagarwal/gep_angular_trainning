@@ -1,0 +1,24 @@
+<h3> Manage Cagegories</h3>
+
+<form>
+   <input [(ngModel)]="frmCtg.id" placeholder="Category Id" name="texId" readonly>
+   <input [(ngModel)]="frmCtg.name" placeholder="Category Name" name="texName" >
+   <button type="button" class="btn btn-primary " (click)="add()">Add</button>
+   <button type="button" class="btn btn-info" (click)="update()">Update</button>
+</form>
+<table class="table">
+  <tr>
+     <th>Id</th>
+     <th>Category Name</th>
+  </tr>
+  <tr *ngIf="categories.length == 0">
+     <td colspan="3"> No Categories Found</td>
+  </tr>
+  <tr *ngFor="let ctg of categories">
+    <td>{{ctg.id}}</td>
+    <td>{{ctg.name}}</td>
+    <td> <button class="btn btn-danger" (click)="delete(ctg.id)" >Delete</button></td>
+    <td> <button class="btn btn-success" (click)="edit(ctg)" >Edit</button></td>
+    
+  </tr>
+</table>
